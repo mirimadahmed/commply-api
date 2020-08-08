@@ -4,9 +4,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $emp_id = $_POST['id'];
     $edit_emp_id_num = $_POST['newid'];
     $password = $_POST['password'];
-    $fname = $_POST['fname'];
-    $mname = $_POST['mname'];
-    $lname = $_POST['lname'];
+    $fname = $_POST['firstname'];
+    $mname = $_POST['middlename'];
+    $lname = $_POST['lastname'];
     $job = $_POST['job'];
     $emp_num = $_POST['number'];
     $emp_tel = $_POST['tel'];
