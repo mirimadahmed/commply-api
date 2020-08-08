@@ -1,5 +1,5 @@
 <?php
-include '../connection.php';
+include '../../connection.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $emp_id = $_POST['id'];
     $edit_emp_id_num = $_POST['newid'];

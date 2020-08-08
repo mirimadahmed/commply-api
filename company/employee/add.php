@@ -1,5 +1,5 @@
 <?php
-include '../connection.php';
+include '../../connection.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $employee_id_number = $_POST['id'];
     $fname = $_POST['firstname'];
