@@ -14,6 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $company = $_POST['company'];
     $token = "";
     $notification = "1";
+    $date_created=date("Y-m-d H:i:s");
     mysqli_query($con, "UPDATE `Employee` SET `employee_id_number`='$edit_emp_id_num',`employee_firstname`='$fname',`employee_middlename`='$mname',`employee_lastname`='$lname',`employee_job`='$job',`employee_number`='$emp_num',`employee_telephone`='$emp_tel',`employee_token`='',`manager_id`='$man_id',`company_id`='$company',`date_created`='$date_created' WHERE employee_id='$emp_id'");
     $temp = array();
     $temp['error'] = 0;

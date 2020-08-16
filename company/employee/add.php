@@ -12,6 +12,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $company = $_POST['company'];
     $token = "";
     $notification = "1";
+    $date_created=date("Y-m-d H:i:s");
     mysqli_query($con, "INSERT INTO `Employee`(`employee_id_number`, `employee_firstname`, `employee_middlename`, `employee_lastname`, `employee_job`, `employee_number`, `employee_telephone`, `employee_token`, `manager_id`, `company_id`, `date_created`) VALUES ('$employee_id_number','$fname','$mname','$lname','$job','$emp_num','$emp_tel','','$man_id','$company','$date_created')");
     $temp = array();
     $temp['error'] = 0;

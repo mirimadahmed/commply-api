@@ -10,6 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $company = $_POST['company'];
     $token = "";
     $notification = "1";
+    $date_created=date("Y-m-d H:i:s");
     mysqli_query($con, "UPDATE `Owner` SET `owner_email`='$email',`owner_password`='$password',`owner_firstname`='$fname',`owner_lastname`='$lname',`owner_token`='$token',`notification`='$notification',`company_id`='$company',`date_created`='$date_created' WHERE owner_id='$owner_id'");
     $temp = array();
     $temp['error'] = 0;
