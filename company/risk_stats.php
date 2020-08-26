@@ -14,8 +14,8 @@ $total_open_risk = "";
 $total_closed_risk = "";
 
 if ($_GET['daterange_report'] == 'true') {
-    $start = date("Y-m-d", strtotime($_GET['start']));
-    $end = date("Y-m-d", strtotime($_GET['end']));
+    $start = $_GET['start'];
+    $end = $_GET['end'];
     $report_type = $start . ' To ' . $end;
     if ($_GET['is_owner'] == 'true') {
         $company_id = $_GET['company_id'];

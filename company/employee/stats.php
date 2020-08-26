@@ -206,7 +206,7 @@ if ($_GET['daterange_report'] == 'true') {
         $get_screened_distinct_employees = mysqli_query($con, "select count(distinct(employee_id)) as total_emp_screened from Daily_check where date(date_created)='$date' and company_id='$company_id'");
         $get_symtomatic_employee = mysqli_query($con, "select distinct(employee_id) as employee_id from Daily_check where date(date_created)='$date' and company_id='$company_id'");
         $get_total_employees = mysqli_query($con, "select count(*) as total_employee from Employee where company_id='$company_id'");
-        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where company_id='$company_id'  and (employee_token!='' or employee_token!=null)");
+        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where date(date_created)='$date' and company_id='$company_id'  and (employee_token!='' or employee_token!=null)");
         $get_screened_employees = mysqli_query($con, "select count(*) as total_emp_screened from Daily_check where date(date_created)='$date' and company_id='$company_id'");
         $get_employee_declaration = mysqli_query($con, "select count(*) as total_emp_declaration from Declaration where date(date_created)='$date' and company_id='$company_id'");
         $get_employee_fever = mysqli_query($con, "select count(*) as total_emp_fever from Daily_check where date(date_created)='$date' and company_id='$company_id' and fever='Yes'");
@@ -216,7 +216,7 @@ if ($_GET['daterange_report'] == 'true') {
         $get_screened_distinct_employees = mysqli_query($con, "select count(distinct(employee_id)) as total_emp_screened from Daily_check where date(date_created)='$date'");
         $get_symtomatic_employee = mysqli_query($con, "select distinct(employee_id) as employee_id from Daily_check where date(date_created)='$date'");
         $get_total_employees = mysqli_query($con, "select count(*) as total_employee from Employee");
-        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where (employee_token!='' or employee_token!=null)");
+        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where date(date_created)='$date' and  (employee_token!='' or employee_token!=null)");
         $get_screened_employees = mysqli_query($con, "select count(*) as total_emp_screened from Daily_check where date(date_created)='$date'");
         $get_employee_declaration = mysqli_query($con, "select count(*) as total_emp_declaration from Declaration where date(date_created)='$date'");
         $get_employee_fever = mysqli_query($con, "select count(*) as total_emp_fever from Daily_check where date(date_created)='$date' and fever='Yes'");
@@ -275,7 +275,7 @@ if ($_GET['daterange_report'] == 'true') {
         $get_screened_distinct_employees = mysqli_query($con, "select count(distinct(employee_id)) as total_emp_screened from Daily_check where date(date_created)='$date' and company_id='$company_id'");
         $get_symtomatic_employee = mysqli_query($con, "select distinct(employee_id) as employee_id from Daily_check where date(date_created)='$date' and company_id='$company_id'");
         $get_total_employees = mysqli_query($con, "select count(*) as total_employee from Employee where company_id='$company_id' " . $subsidary_check);
-        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where  company_id='$company_id'  and (employee_token!='' or employee_token!=null)");
+        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where date(date_created)='$date' and company_id='$company_id'  and (employee_token!='' or employee_token!=null)");
         $get_screened_employees = mysqli_query($con, "select count(*) as total_emp_screened from Daily_check where date(date_created)='$date' and company_id='$company_id'");
         $get_employee_declaration = mysqli_query($con, "select count(*) as total_emp_declaration from Declaration where date(date_created)='$date' and company_id='$company_id'");
         $get_employee_fever = mysqli_query($con, "select count(*) as total_emp_fever from Daily_check where date(date_created)='$date' and company_id='$company_id' and fever='Yes'");
@@ -285,7 +285,7 @@ if ($_GET['daterange_report'] == 'true') {
         $get_screened_distinct_employees = mysqli_query($con, "select count(distinct(employee_id)) as total_emp_screened from Daily_check where date(date_created)='$date'");
         $get_symtomatic_employee = mysqli_query($con, "select distinct(employee_id) as employee_id from Daily_check where date(date_created)='$date'");
         $get_total_employees = mysqli_query($con, "select count(*) as total_employee from Employee " . $subsidary_single_check);
-        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where (employee_token!='' or employee_token!=null)" . $subsidary_check);
+        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where date(date_created)='$date' and (employee_token!='' or employee_token!=null)" . $subsidary_check);
         $get_screened_employees = mysqli_query($con, "select count(*) as total_emp_screened from Daily_check where date(date_created)='$date'");
         $get_employee_declaration = mysqli_query($con, "select count(*) as total_emp_declaration from Declaration where date(date_created)='$date'");
         $get_employee_fever = mysqli_query($con, "select count(*) as total_emp_fever from Daily_check where date(date_created)='$date' and fever='Yes'");
@@ -344,7 +344,7 @@ if ($_GET['daterange_report'] == 'true') {
         $get_screened_distinct_employees = mysqli_query($con, "select count(distinct(employee_id)) as total_emp_screened from Daily_check where date(date_created)>='$previous_monday' and date(date_created)<'$next_monday'  and company_id='$company_id'");
         $get_symtomatic_employee = mysqli_query($con, "select distinct(employee_id) as employee_id from Daily_check where date(date_created)>='$previous_monday' and date(date_created)<'$next_monday'  and company_id='$company_id'");
         $get_total_employees = mysqli_query($con, "select count(*) as total_employee from Employee where company_id='$company_id'" . $subsidary_check);
-        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where company_id='$company_id'  and (employee_token!='' or employee_token!=null)" . $subsidary_check);
+        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where date(date_created)>='$previous_monday' and date(date_created)<'$next_monday' and company_id='$company_id'  and (employee_token!='' or employee_token!=null)" . $subsidary_check);
         $get_screened_employees = mysqli_query($con, "select count(*) as total_emp_screened from Daily_check where date(date_created)>='$previous_monday' and date(date_created)<'$next_monday'  and company_id='$company_id'");
         $get_employee_declaration = mysqli_query($con, "select count(*) as total_emp_declaration from Declaration where date(date_created)>='$previous_monday' and date(date_created)<'$next_monday' and company_id='$company_id'");
         $get_employee_fever = mysqli_query($con, "select count(*) as total_emp_fever from Daily_check where date(date_created)>='$previous_monday' and date(date_created)<'$next_monday' and company_id='$company_id' and fever='Yes'");
@@ -354,7 +354,7 @@ if ($_GET['daterange_report'] == 'true') {
         $get_screened_distinct_employees = mysqli_query($con, "select count(distinct(employee_id)) as total_emp_screened from Daily_check where date(date_created)>='$previous_monday' and date(date_created)<'$next_monday'");
         $get_symtomatic_employee = mysqli_query($con, "select distinct(employee_id) as employee_id from Daily_check where date(date_created)>='$previous_monday' and date(date_created)<'$next_monday'");
         $get_total_employees = mysqli_query($con, "select count(*) as total_employee from Employee " . $subsidary_single_check);
-        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where  (employee_token!='' or employee_token!=null)" . $subsidary_check);
+        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where date(date_created)>='$previous_monday' and date(date_created)<'$next_monday' and (employee_token!='' or employee_token!=null)" . $subsidary_check);
         $get_screened_employees = mysqli_query($con, "select count(*) as total_emp_screened from Daily_check where date(date_created)>='$previous_monday' and date(date_created)<'$next_monday'");
         $get_employee_declaration = mysqli_query($con, "select count(*) as total_emp_declaration from Declaration where date(date_created)>='$previous_monday' and date(date_created)<'$next_monday'");
         $get_employee_fever = mysqli_query($con, "select count(*) as total_emp_fever from Daily_check where date(date_created)>='$previous_monday' and date(date_created)<'$next_monday' and fever='Yes'");
@@ -413,7 +413,7 @@ if ($_GET['daterange_report'] == 'true') {
         $get_screened_distinct_employees = mysqli_query($con, "select count(distinct(employee_id)) as total_emp_screened from Daily_check where date(date_created)>='$first_date' and date(date_created)<='$last_date'  and company_id='$company_id'");
         $get_symtomatic_employee = mysqli_query($con, "select distinct(employee_id) as employee_id from Daily_check where date(date_created)>='$first_date' and date(date_created)<'$last_date'  and company_id='$company_id'");
         $get_total_employees = mysqli_query($con, "select count(*) as total_employee from Employee where  company_id='$company_id'" . $subsidary_check);
-        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where company_id='$company_id'  and (employee_token!='' or employee_token!=null)" . $subsidary_check);
+        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where date(date_created)>='$first_date' and date(date_created)<'$last_date' and company_id='$company_id'  and (employee_token!='' or employee_token!=null)" . $subsidary_check);
         $get_screened_employees = mysqli_query($con, "select count(*) as total_emp_screened from Daily_check where date(date_created)>='$first_date' and date(date_created)<='$last_date'  and company_id='$company_id'");
         $get_employee_declaration = mysqli_query($con, "select count(*) as total_emp_declaration from Declaration where date(date_created)>='$first_date' and date(date_created)<='$last_date' and company_id='$company_id'");
         $get_employee_fever = mysqli_query($con, "select count(*) as total_emp_fever from Daily_check where date(date_created)>='$first_date' and date(date_created)<'$last_date' and company_id='$company_id' and fever='Yes'");
@@ -423,7 +423,7 @@ if ($_GET['daterange_report'] == 'true') {
         $get_screened_distinct_employees = mysqli_query($con, "select count(distinct(employee_id)) as total_emp_screened from Daily_check where date(date_created)>='$first_date' and date(date_created)<='$last_date'");
         $get_symtomatic_employee = mysqli_query($con, "select distinct(employee_id) as employee_id from Daily_check where date(date_created)>='$first_date' and date(date_created)<'$last_date'");
         $get_total_employees = mysqli_query($con, "select count(*) as total_employee from Employee " . $subsidary_single_check);
-        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where  (employee_token!='' or employee_token!=null)" . $subsidary_check);
+        $get_registered_employees = mysqli_query($con, "select count(*) as registered_employee from Employee where date(date_created)>='$first_date' and date(date_created)<'$last_date' and (employee_token!='' or employee_token!=null)" . $subsidary_check);
         $get_screened_employees = mysqli_query($con, "select count(*) as total_emp_screened from Daily_check where date(date_created)>='$first_date' and date(date_created)<='$last_date'");
         $get_employee_declaration = mysqli_query($con, "select count(*) as total_emp_declaration from Declaration where date(date_created)>='$first_date' and date(date_created)<='$last_date'");
         $get_employee_fever = mysqli_query($con, "select count(*) as total_emp_fever from Daily_check where date(date_created)>='$first_date' and date(date_created)<'$last_date'  and fever='Yes'");
