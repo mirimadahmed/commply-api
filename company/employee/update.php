@@ -3,7 +3,6 @@ include '../../connection.php';
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $emp_id = $_POST['id'];
     $edit_emp_id_num = $_POST['newid'];
-    $password = $_POST['password'];
     $fname = $_POST['firstname'];
     $mname = $_POST['middlename'];
     $lname = $_POST['lastname'];
