@@ -11,10 +11,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $emp_tel = $_POST['tel'];
     $man_id = $_POST['manager'];
     $company = $_POST['company'];
+    $subsidary = $_POST['subsidary'];
+    $status = $_POST['status'];
     $token = "";
     $notification = "1";
     $date_created=date("Y-m-d H:i:s");
-    mysqli_query($con, "UPDATE `Employee` SET `employee_id_number`='$edit_emp_id_num',`employee_firstname`='$fname',`employee_middlename`='$mname',`employee_lastname`='$lname',`employee_job`='$job',`employee_number`='$emp_num',`employee_telephone`='$emp_tel',`employee_token`='',`manager_id`='$man_id',`company_id`='$company',`date_created`='$date_created' WHERE employee_id='$emp_id'");
+    mysqli_query($con, "UPDATE `Employee` SET `employee_id_number`='$edit_emp_id_num',`employee_firstname`='$fname',`employee_middlename`='$mname',`employee_lastname`='$lname',`employee_job`='$job',`employee_number`='$emp_num',`employee_telephone`='$emp_tel',`employee_token`='',`manager_id`='$man_id',`company_id`='$company',`date_created`='$date_created',`subsidary`='$subsidary',`status`='$status' WHERE employee_id='$emp_id'");
     $temp = array();
     $temp['error'] = 0;
     $temp['message'] = "Employee updated successfully";

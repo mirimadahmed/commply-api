@@ -6,8 +6,8 @@
 //     die();
 // }
 // header('Access-Control-Allow-Origin: http://localhost:8080');
-$con = mysqli_connect('localhost', 'root', '', 'gonxttec_commply');
-// $con = mysqli_connect('localhost', 'gonxttec', 'Then1sawherface###', 'gonxttec_commply');
+// $con = mysqli_connect('localhost', 'root', '12345678', 'gonxttec_commply');
+$con = mysqli_connect('localhost', 'gonxttec', 'Then1sawherface###', 'gonxttec_commply');
 function utf8ize( $mixed ) {
     if (is_array($mixed)) {
         foreach ($mixed as $key => $value) {

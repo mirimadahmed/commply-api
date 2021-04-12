@@ -11,10 +11,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $man_id = $_POST['manager'];
     $company = $_POST['company'];
     $subsidary = $_POST['subsidary'];
+    $status = $_POST['status'];
     $token = "";
     $notification = "1";
     $date_created=date("Y-m-d H:i:s");
-    $result = mysqli_query($con, "INSERT INTO `Employee`(`employee_id_number`, `employee_firstname`, `employee_middlename`, `employee_lastname`, `employee_job`, `employee_number`, `employee_telephone`, `employee_token`, `manager_id`, `company_id`, `subsidary`, `date_created`) VALUES ('$employee_id_number','$fname','$mname','$lname','$job','$emp_num','$emp_tel','','$man_id','$company', '$subsidary','$date_created')");
+    $result = mysqli_query($con, "INSERT INTO `Employee`(`employee_id_number`, `employee_firstname`, `employee_middlename`, `employee_lastname`, `employee_job`, `employee_number`, `employee_telephone`, `employee_token`, `manager_id`, `company_id`, `subsidary`, `date_created`, `status`) VALUES ('$employee_id_number','$fname','$mname','$lname','$job','$emp_num','$emp_tel','','$man_id','$company', '$subsidary','$date_created', '$status')");
     if($result) {
         $temp = array();
         $temp['error'] = 0;
